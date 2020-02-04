@@ -14,7 +14,6 @@ export const useGetClient = () => {
 
   const [client, setClient] = useState({ ...getClient() })
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onResize = useCallback(() => {
     setClient({ ...getClient() })
   })

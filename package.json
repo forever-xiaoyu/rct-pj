@@ -28,6 +28,8 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "autoprefixer": "^9.7.3",
+    "axios": "^0.19.2",
+    "axios-retry": "^3.1.2",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^3.0.0",
@@ -59,17 +61,5 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "validate-commit-msg",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "npm run lint",
-      "git add"
-    ]
   }
 }

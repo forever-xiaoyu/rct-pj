@@ -7,7 +7,7 @@ class Index extends Component {
   constructor () {
     super()
     this.state = {
-      todoList: ['one', 'two', 'three']
+      // todoList: ['one', 'two', 'three']
     }
   }
 
@@ -17,7 +17,6 @@ class Index extends Component {
         <ul className={styles.list}>
           <li>
             Hello,
-            {this.state.todoList[0]}
           </li>
           <Demo />
         </ul>

@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     'react',
-    'react-hooks'
+    // 'react-hooks'
   ],
   rules: {
     'semi': ['error', 'never'],
@@ -36,8 +36,8 @@ module.exports = {
     'react/static-property-placement': 0,
     'react/state-in-constructor': 0,
     'react/forbid-prop-types': 0,
-    'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
-    'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
+    // 'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+    // 'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
     "linebreak-style": [0, "error", "windows"],
     "import/no-extraneous-dependencies":["error", { "devDependencies" : true}]
   },

@@ -7,3 +7,17 @@
   },
   "exclude": ["node_modules", "dist"]
 }
+
+// package.json bp
+// "husky": {
+//   "hooks": {
+//     "commit-msg": "validate-commit-msg",
+//     "pre-commit": "lint-staged"
+//   }
+// },
+// "lint-staged": {
+//   "*.{js,jsx}": [
+//     "npm run lint",
+//     "git add"
+//   ]
+// }
