@@ -1,36 +1,41 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
-import Demo from '@c/demo'
+import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+import Todo from '@c/todo'
 import styles from './index.scss'
 
 class Index extends Component {
-  constructor () {
-    super()
+  static propTypes = {
+    history: PropTypes.object
+  }
+
+  constructor (props) {
+    super(props)
     this.state = {
       todoList: ['one', 'two', 'three']
     }
+  }
+
+  goToPage () {
+    this.props.history.push({
+      pathname: '/demo'
+    })
   }
 
   render () {
     return (
       <div className="index">
         <ul className={styles.list}>
-          <li>
-            Hello,
-            {this.state.todoList[0]}
-          </li>
-          <Demo />
+          {this.state.todoList.map((todo) => (
+            <Todo content={todo} key={todo} />
+          ))}
         </ul>
+        <NavLink to="/demo">GoToPage</NavLink>
+        <div onClick={this.goToPage.bind(this)}>ButtonToPage</div>
       </div>
     )
   }
 }
-
-// const Index = () => (
-//   <div className="index-container">
-//     Hello React! This is index
-//     <Demo />
-//   </div>
-// )
 
 export default Index

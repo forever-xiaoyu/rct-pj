@@ -1,3 +1,3 @@
-import Demo from './demo'
+import Todo from './todo'
 
-export default Demo
+export default Todo

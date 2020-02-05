@@ -1,4 +1,4 @@
-const WebPackMerge = require('webpack-merge')
+const merge = require('webpack-merge')
 
 // 提取出css，不注入js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const baseConfig = require('./webpack.config')
 
-module.exports = WebPackMerge(baseConfig, {
+module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
@@ -17,23 +17,16 @@ module.exports = WebPackMerge(baseConfig, {
         use: [
           // 提取 css 为单独文件
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]'
+              }
+            }
+          },
           'sass-loader',
           'postcss-loader'
-        ]
-      },
-      // 图片加载
-      {
-        test: /\.(png|jpg|svg|jpeg|gif)$/,
-        exclude: /node_modelues/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              // 小于 10k 转换成base64编码
-              limit: 10000,
-            }
-          }
         ]
       },
     ]

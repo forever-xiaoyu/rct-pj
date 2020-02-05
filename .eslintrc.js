@@ -6,7 +6,7 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'plugin:react/recommended',
+    // 'plugin:react/recommended',
     'airbnb',
   ],
   globals: {
@@ -36,10 +36,13 @@ module.exports = {
     'react/static-property-placement': 0,
     'react/state-in-constructor': 0,
     'react/forbid-prop-types': 0,
+    'react/require-default-props': 0,
     // 'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
     // 'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
-    "linebreak-style": [0, "error", "windows"],
-    "import/no-extraneous-dependencies":["error", { "devDependencies" : true}]
+    'linebreak-style': [0, 'error', 'windows'],
+    'import/no-extraneous-dependencies':['error', { 'devDependencies' : true}],
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0
   },
   settings: {
     'import/resolver': {

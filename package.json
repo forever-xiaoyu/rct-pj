@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
+    "serve": "npm run dev",
     "dev": "webpack-dev-server --config config/webpack.config.dev.js --mode development --colors --progress",
-    "build:dev": "rm -rf dist/* && webpack --config config/webpack.config.beta.js --mode development --colors --progress",
+    "build:yufa": "rm -rf dist/* && webpack --config config/webpack.config.yufa.js --mode development --colors --progress",
     "build:prod": "rm -rf dist/* && webpack --config config/webpack.config.prod.js --mode production --colors --progress",
+    "build": "npm run build:prod",
     "lint": "eslint src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "path": "^0.12.7",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",

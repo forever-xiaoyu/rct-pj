@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const WebPackMerge = require('webpack-merge')
+const merge = require('webpack-merge')
 // 提取出css，不注入js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 配置压缩js/css/gzip
@@ -11,7 +11,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // 基础 webpack 配置
 const baseConfig = require('./webpack.config')
 
-module.exports = WebPackMerge(baseConfig, {
+module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
@@ -23,23 +23,6 @@ module.exports = WebPackMerge(baseConfig, {
           'css-loader',
           'postcss-loader',
           'sass-loader'
-        ]
-      },
-      // 图片加载
-      {
-        test: /\.(png|jpg|svg|jpeg|gif)$/,
-        exclude: /node_modelues/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              // 小于 10k 转换成base64编码
-              limit: 10000,
-              // outputPath: '/dist/images/',
-              // 有 CDN时 public path
-              // publicPath: '/images/'
-            }
-          }
         ]
       },
     ]

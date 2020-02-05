@@ -11,8 +11,9 @@ const srcDir = path.resolve(__dirname, '../src')
 const rootDir = path.resolve(__dirname, '../')
 
 module.exports = {
-  entry: path.resolve(srcDir, 'index.js'),
+  entry: path.resolve(srcDir, 'main.js'),
   output: {
+    publicPath: '/',
     filename: '[name].[hash].js',
     path: distDir
   },
@@ -42,7 +43,24 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         exclude: /node_modelues/,
         use: ['file-loader']
-      }
+      },
+      // 图片加载
+      {
+        test: /\.(png|jpg|svg|jpeg|gif)$/,
+        exclude: /node_modelues/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // 小于 10k 转换成base64编码
+              limit: 10000,
+              // outputPath: '/dist/images/',
+              // 有 CDN时 public path
+              // publicPath: '/images/'
+            }
+          }
+        ]
+      },
     ]
   },
   plugins: [

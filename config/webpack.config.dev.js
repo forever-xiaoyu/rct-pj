@@ -1,13 +1,13 @@
 const webpack = require('webpack')
 const path = require('path')
-const WebPackMerge = require('webpack-merge')
+const merge = require('webpack-merge')
 
 const baseConfig = require('./webpack.config')
 
 // 打包后文件位置
 const distDir = path.resolve(__dirname, '../dist')
 
-module.exports = WebPackMerge(baseConfig, {
+module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
@@ -28,20 +28,6 @@ module.exports = WebPackMerge(baseConfig, {
           'postcss-loader'
         ]
       },
-      // 图片加载
-      {
-        test: /\.(png|jpg|svg|jpeg|gif)$/,
-        exclude: /node_modelues/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              // 小于 10k 转换成base64编码
-              limit: 10000,
-            }
-          }
-        ]
-      },
     ]
   },
   devServer: {
@@ -52,6 +38,7 @@ module.exports = WebPackMerge(baseConfig, {
     hotOnly: true, // 编译成功后刷新
     // open: true, // 是否自动打开浏览器
     disableHostCheck: true, // 解决 127.0.0.1 指向其他域名错误
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
