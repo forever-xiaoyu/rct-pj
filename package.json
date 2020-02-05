@@ -11,6 +11,8 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
+    "serve": "npm start",
+    "dev": "npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
