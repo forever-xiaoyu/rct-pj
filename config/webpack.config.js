@@ -31,6 +31,18 @@ module.exports = {
   },
   module: {
     rules: [
+      // 针对 node_modules 中的样式单独配置 loader 使用
+      // 防止和 css module 冲突等情况
+      {
+        test: /\.(scss|css)$/,
+        include: /node_modules/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader?sourceMap',
+          'postcss-loader'
+        ]
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,

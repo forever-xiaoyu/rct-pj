@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { Button } from 'antd-mobile'
 import Todo from '@c/todo'
 import styles from './index.scss'
 
@@ -33,6 +34,7 @@ class Index extends Component {
         </ul>
         <NavLink to="/demo">GoToPage</NavLink>
         <div onClick={this.goToPage.bind(this)}>ButtonToPage</div>
+        <Button>Start</Button>
       </div>
     )
   }
